@@ -1,0 +1,66 @@
+<!-- {{data | safe }}
+<br>
+{{f_s_1 | safe }}
+<br>
+{{f_s_2 | safe }}
+<br>
+{{out_s_1 | safe }}
+<br>
+<!-- <div name class = "new"> -->
+{{out_s_2 | safe }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formatted Data</title>
+  <style>
+    /* Increase font size for all elements */
+    body {
+      font-size: 18px;
+    }
+
+    /* Add a heading style */
+    h2 {
+      font-size: 24px;
+      color: #333; /* You can change the color as needed */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Assuming "data", "f_s_1", "f_s_2", "out_s_1", and "out_s_2" are placeholders for your actual data -->
+
+  <!-- Heading and formatted data for "data" -->
+  <h2>Data:</h2>
+  {{ data | safe }}
+  <br>
+
+  <!-- Heading and formatted data for "f_s_1" -->
+  <h2>Results</h2>
+  {{ f_s_1 | safe }}
+  <br>
+
+  <!-- Heading and formatted data for "f_s_2" -->
+  <h2></h2>
+  {{ f_s_2 | safe }}
+  <br>
+
+  <!-- Heading and formatted data for "out_s_1" -->
+  <h2>Strategies</h2>
+  {{ out_s_1 | safe }}
+  <br>
+
+  <!-- Heading and formatted data for "out_s_2" -->
+  <h2></h2>
+  <!-- <div name class = "new"> -->
+  {{ out_s_2 | safe }}
+  <!-- </div> -->
+  <br>  
+  <h4>Start page can be accessed below </h4>
+    <a href="start"> Start Page </a>
+</body>
+</html>
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telco Customer Churn</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: calibri;
+            background: url('https://learn.g2.com/hubfs/Customer%20Retention%20Marketing.png') no-repeat center center fixed;
+            background-size: 70%;
+	    background-position: right center;
+        }
+
+        nav {
+            background-color: #ADD8E6; /* Light Blue color */
+            padding: 15px;	
+            text-align: centre;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff; /* Black text color */
+            text-align: centre;
+            padding: 10px 20px;
+            display: inline-block;
+	    font-weight: bold;
+	    font-size: 30px;
+        }
+	.Main_text {
+            color: #81BEF7;
+            font-weight: bold;
+            text-align: Centre;
+            margin-top: 1em;
+	    font-size: 34px;
+	    width : 30%;
+	    padding-left: 10px;
+
+        }
+	.paragraph-after {
+            text-align: left;
+            margin-top: 1em;
+            margin-bottom: 1em; /* Add space below the paragraph */
+            color: #333; /* Set color for the paragraph text */
+            font-size: 18px; /* Set a smaller font size for the paragraph */
+	    padding-left: 10px;
+        }
+	.text {
+            color: #81BEF7;
+            font-weight: bold;
+            text-align: Centre;
+            margin-top: 1em;
+	    font-size: 20px;padding-left: 10px;
+        }
+	.text2 {
+            color: #81BEF7;
+            font-weight: bold;
+            text-align: Centre;
+            margin-top: 1em;
+	    font-size: 24px;padding-left: 10px;
+        }
+	.text3 {
+            text-align: left;
+            margin-top: 1em;
+            margin-bottom: 1em; /* Add space below the paragraph */
+            color: #333; /* Set color for the paragraph text */
+            font-size: 18px; /* Set a smaller font size for the paragraph */
+padding-left: 10px;
+        }      
+
+        /* Add more styling for the rest of your page content if needed */
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Data Intensive Computing Course Project</a>
+    </nav>
+
+    <div class="Main_text">
+        <p style="color: #5858FA;">Customer Churn Prediction</p>
+        <p class="paragraph-after">
+ This user interface is specifically crafted for forecasting customer churn,
+ employing a robust XGBoost (XGB) model trained on Telco Customer Churn data. 
+The input data is anticipated to conform to the standardized format established 
+during the training and prediction processes. This alignment is crucial to ensure 
+seamless integration with predefined preprocessing functions, which are integral 
+to the accurate analysis of customer churn. The structured input data adheres to 
+the parent data format, facilitating a streamlined and effective prediction process.</p>
+    </div>
+    <div class="text2">
+        <p style="color: #FE2E9A;">Predict the possibility of customer churn</p>
+<br>
+	</div>
+    <form class="" action="inp_data" method="post" enctype="multipart/form-data">
+  <!-- <input type="file" name="upload-file" value=""> -->
+  <input type="file" id="upload-file" name="upload-file" accept=".xlsx, .csv">
+  <input type="submit" name="" value="Predict">
+</form>
+<div class="text3">The input shoud be as specidied in link below 
+<br>
+<a href="input_data_format"> Input Data Format Page </a>
+</div>
+</body>
+</html>
