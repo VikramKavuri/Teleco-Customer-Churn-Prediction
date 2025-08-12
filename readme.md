@@ -15,8 +15,6 @@
 
 **🎯 Predicting Customer Churn with 87% Accuracy – Saving Millions in Revenue!**
 
-[🎬 Live Demo](#-web-application) · [📊 View Results](#-results-that-speak-volumes) · [🔬 Explore Analysis](#-deep-dive-analysis)
-
 </div>
 
 ---
@@ -401,9 +399,9 @@ telecom-churn-prediction/
 
 **Questions? Ideas? Collaboration?**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/yourusername)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-100000?style=for-the-badge&logo=github)](https://github.com/yourusername)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail)](mailto:your.email@example.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/thrivikrama-rao-kavuri-7290b6147/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-100000?style=for-the-badge&logo=github)](https://github.com/VikramKavuri)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail)](mailto:thrivikr@buffalo.edu)
 
 </div>
 
