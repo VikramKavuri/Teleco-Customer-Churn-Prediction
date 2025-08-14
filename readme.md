@@ -33,6 +33,19 @@ Transform 7,043 customer records and 33 features into actionable insights that c
 - ⚡ **Deploy predictions in real-time via web app**
 
 ---
+## 🔄 Workflow & Architecture
+```mermaid
+flowchart TD
+    A[Raw Telco Dataset (Excel)] --> B[Preprocessing & Encoding]
+    B --> C[Train/Test Split (scikit-learn)]
+    C --> D[XGBoost Classifier]
+    C --> E[Other Models Tested: RF, DT, LR, NB, SVM]
+    D --> F[Evaluation: Confusion Matrix, ROC-AUC, F1]
+    F --> G[Feature Importance Ranking]
+    D --> H[Flask Web App]
+    H --> I[Upload Customer File]
+    I --> J[Predictions + Retention Strategies]
+```
 
 ## 🌟 **What Makes This Project Special**
 
