@@ -34,6 +34,7 @@ Transform 7,043 customer records and 33 features into actionable insights that c
 
 ---
 ## 🔄 Workflow & Architecture
+```mermaid
 graph TB
     subgraph "📂 DATA"
         A[Telco Customer Dataset<br/>7043 Records · 33 Features]
@@ -83,7 +84,7 @@ graph TB
     style E6 fill:#99ffcc,stroke:#333,stroke-width:2px
     style H fill:#99ccff,stroke:#333,stroke-width:2px
     style L fill:#99ff99,stroke:#333,stroke-width:2px
-
+```
 
 ## 🌟 **What Makes This Project Special**
 
