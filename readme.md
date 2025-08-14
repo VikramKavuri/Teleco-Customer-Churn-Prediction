@@ -34,16 +34,56 @@ Transform 7,043 customer records and 33 features into actionable insights that c
 
 ---
 ## 🔄 Workflow & Architecture
-flowchart TD
-    A[Raw Telco Dataset (Excel)] --> B[Preprocessing & Encoding]
-    B --> C[Train/Test Split (scikit-learn)]
-    C --> D[XGBoost Classifier]
-    C --> E[Other Models Tested: RF, DT, LR, NB, SVM]
-    D --> F[Evaluation: Confusion Matrix, ROC-AUC, F1]
-    F --> G[Feature Importance Ranking]
-    D --> H[Flask Web App]
-    H --> I[Upload Customer File]
-    I --> J[Predictions + Retention Strategies]
+graph TB
+    subgraph "📂 DATA"
+        A[Telco Customer Dataset<br/>7043 Records · 33 Features]
+    end
+    
+    subgraph "⚙️ PROCESSING"
+        B[Data Cleaning<br/>Null Handling · Outliers · Encoding]
+        C[Feature Engineering<br/>Tenure · Charges · Services]
+        D[SMOTE Balancing<br/>Handle Class Imbalance]
+    end
+    
+    subgraph "🤖 MODELING"
+        E1[Logistic Regression]
+        E2[Decision Tree]
+        E3[Random Forest]
+        E4[SVM]
+        E5[Naïve Bayes]
+        E6[XGBoost 🏆<br/>Best Model · 87% AUC]
+    end
+    
+    subgraph "🧪 EVALUATION"
+        F[Confusion Matrix<br/>ROC-AUC · F1-Score]
+        G[Feature Importance<br/>Top Drivers of Churn]
+    end
+    
+    subgraph "🌐 DEPLOYMENT"
+        H[Flask Web App<br/>/start · /inp_data]
+        I[Upload Excel/CSV<br/>Predict Churn per Customer]
+        J[Retention Strategies<br/>Discounts · Support · Bundling]
+    end
+    
+    subgraph "💼 BUSINESS IMPACT"
+        K[Reduce Churn<br/>+86% Churners Identified]
+        L[Revenue Protection<br/>≈ $1.6M Annually Saved]
+    end
+
+    %% Flow
+    A --> B --> C --> D
+    D --> E1 & E2 & E3 & E4 & E5 & E6
+    E6 --> F --> G
+    G --> H
+    H --> I --> J
+    J --> K --> L
+
+    %% Styling
+    style A fill:#ffcc99,stroke:#333,stroke-width:2px
+    style E6 fill:#99ffcc,stroke:#333,stroke-width:2px
+    style H fill:#99ccff,stroke:#333,stroke-width:2px
+    style L fill:#99ff99,stroke:#333,stroke-width:2px
+
 
 ## 🌟 **What Makes This Project Special**
 
