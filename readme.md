@@ -34,7 +34,6 @@ Transform 7,043 customer records and 33 features into actionable insights that c
 
 ---
 ## 🔄 Workflow & Architecture
-```mermaid
 flowchart TD
     A[Raw Telco Dataset (Excel)] --> B[Preprocessing & Encoding]
     B --> C[Train/Test Split (scikit-learn)]
@@ -45,7 +44,6 @@ flowchart TD
     D --> H[Flask Web App]
     H --> I[Upload Customer File]
     I --> J[Predictions + Retention Strategies]
-```
 
 ## 🌟 **What Makes This Project Special**
 
