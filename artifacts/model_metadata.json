@@ -1,0 +1,426 @@
+{
+  "trained_at": "2026-04-19T22:38:01.616241+00:00",
+  "deployed_model_name": "xgboost",
+  "best_model_name": "xgboost",
+  "metrics": {
+    "logistic_regression": {
+      "roc_auc": 0.8491,
+      "average_precision": 0.6461,
+      "accuracy": 0.7459,
+      "precision": 0.5141,
+      "recall": 0.7807,
+      "f1": 0.62,
+      "confusion_matrix": [
+        [
+          759,
+          276
+        ],
+        [
+          82,
+          292
+        ]
+      ],
+      "positive_rate": 0.4031
+    },
+    "random_forest": {
+      "roc_auc": 0.8475,
+      "average_precision": 0.6538,
+      "accuracy": 0.7899,
+      "precision": 0.5933,
+      "recall": 0.6631,
+      "f1": 0.6263,
+      "confusion_matrix": [
+        [
+          865,
+          170
+        ],
+        [
+          126,
+          248
+        ]
+      ],
+      "positive_rate": 0.2967
+    },
+    "xgboost": {
+      "roc_auc": 0.8514,
+      "average_precision": 0.667,
+      "accuracy": 0.802,
+      "precision": 0.6462,
+      "recall": 0.5615,
+      "f1": 0.6009,
+      "confusion_matrix": [
+        [
+          920,
+          115
+        ],
+        [
+          164,
+          210
+        ]
+      ],
+      "positive_rate": 0.2307
+    }
+  },
+  "ui_metadata": {
+    "categorical_options": {
+      "gender": [
+        "Female",
+        "Male"
+      ],
+      "senior_citizen": [
+        "No",
+        "Yes"
+      ],
+      "partner": [
+        "No",
+        "Yes"
+      ],
+      "dependents": [
+        "No",
+        "Yes"
+      ],
+      "phone_service": [
+        "No",
+        "Yes"
+      ],
+      "multiple_lines": [
+        "No",
+        "No phone service",
+        "Yes"
+      ],
+      "internet_service": [
+        "DSL",
+        "Fiber optic",
+        "No"
+      ],
+      "online_security": [
+        "No",
+        "No internet service",
+        "Yes"
+      ],
+      "online_backup": [
+        "No",
+        "No internet service",
+        "Yes"
+      ],
+      "device_protection": [
+        "No",
+        "No internet service",
+        "Yes"
+      ],
+      "tech_support": [
+        "No",
+        "No internet service",
+        "Yes"
+      ],
+      "streaming_tv": [
+        "No",
+        "No internet service",
+        "Yes"
+      ],
+      "streaming_movies": [
+        "No",
+        "No internet service",
+        "Yes"
+      ],
+      "contract": [
+        "Month-to-month",
+        "One year",
+        "Two year"
+      ],
+      "paperless_billing": [
+        "No",
+        "Yes"
+      ],
+      "payment_method": [
+        "Bank transfer (automatic)",
+        "Credit card (automatic)",
+        "Electronic check",
+        "Mailed check"
+      ]
+    },
+    "numeric_ranges": {
+      "tenure_months": {
+        "min": 0.0,
+        "max": 72.0,
+        "median": 29.0
+      },
+      "monthly_charges": {
+        "min": 18.25,
+        "max": 118.75,
+        "median": 70.35
+      },
+      "total_charges": {
+        "min": 0.0,
+        "max": 8684.8,
+        "median": 1394.55
+      }
+    },
+    "defaults": {
+      "gender": "Female",
+      "senior_citizen": "No",
+      "partner": "No",
+      "dependents": "No",
+      "phone_service": "No",
+      "multiple_lines": "No",
+      "internet_service": "DSL",
+      "online_security": "No",
+      "online_backup": "No",
+      "device_protection": "No",
+      "tech_support": "No",
+      "streaming_tv": "No",
+      "streaming_movies": "No",
+      "contract": "Month-to-month",
+      "paperless_billing": "No",
+      "payment_method": "Bank transfer (automatic)",
+      "tenure_months": 29.0,
+      "monthly_charges": 70.35,
+      "total_charges": 1394.55
+    },
+    "features": [
+      "gender",
+      "senior_citizen",
+      "partner",
+      "dependents",
+      "phone_service",
+      "multiple_lines",
+      "internet_service",
+      "online_security",
+      "online_backup",
+      "device_protection",
+      "tech_support",
+      "streaming_tv",
+      "streaming_movies",
+      "contract",
+      "paperless_billing",
+      "payment_method",
+      "tenure_months",
+      "monthly_charges",
+      "total_charges"
+    ]
+  },
+  "dataset_rows": 7043,
+  "class_balance": {
+    "churn": 1869,
+    "retain": 5174
+  },
+  "numeric_medians": {
+    "tenure_months": 29.0,
+    "monthly_charges": 70.35,
+    "total_charges": 1394.55
+  },
+  "categorical_fill_values": {
+    "gender": "Male",
+    "senior_citizen": "No",
+    "partner": "No",
+    "dependents": "No",
+    "phone_service": "Yes",
+    "multiple_lines": "No",
+    "internet_service": "Fiber optic",
+    "online_security": "No",
+    "online_backup": "No",
+    "device_protection": "No",
+    "tech_support": "No",
+    "streaming_tv": "No",
+    "streaming_movies": "No",
+    "contract": "Month-to-month",
+    "paperless_billing": "Yes",
+    "payment_method": "Electronic check"
+  },
+  "category_levels": {
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "senior_citizen": [
+      "No",
+      "Yes"
+    ],
+    "partner": [
+      "No",
+      "Yes"
+    ],
+    "dependents": [
+      "No",
+      "Yes"
+    ],
+    "phone_service": [
+      "No",
+      "Yes"
+    ],
+    "multiple_lines": [
+      "No",
+      "No phone service",
+      "Yes"
+    ],
+    "internet_service": [
+      "DSL",
+      "Fiber optic",
+      "No"
+    ],
+    "online_security": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "online_backup": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "device_protection": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "tech_support": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "streaming_tv": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "streaming_movies": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "contract": [
+      "Month-to-month",
+      "One year",
+      "Two year"
+    ],
+    "paperless_billing": [
+      "No",
+      "Yes"
+    ],
+    "payment_method": [
+      "Bank transfer (automatic)",
+      "Credit card (automatic)",
+      "Electronic check",
+      "Mailed check"
+    ]
+  },
+  "encoded_feature_columns": [
+    "tenure_months",
+    "monthly_charges",
+    "total_charges",
+    "gender_Female",
+    "gender_Male",
+    "senior_citizen_No",
+    "senior_citizen_Yes",
+    "partner_No",
+    "partner_Yes",
+    "dependents_No",
+    "dependents_Yes",
+    "phone_service_No",
+    "phone_service_Yes",
+    "multiple_lines_No",
+    "multiple_lines_No phone service",
+    "multiple_lines_Yes",
+    "internet_service_DSL",
+    "internet_service_Fiber optic",
+    "internet_service_No",
+    "online_security_No",
+    "online_security_No internet service",
+    "online_security_Yes",
+    "online_backup_No",
+    "online_backup_No internet service",
+    "online_backup_Yes",
+    "device_protection_No",
+    "device_protection_No internet service",
+    "device_protection_Yes",
+    "tech_support_No",
+    "tech_support_No internet service",
+    "tech_support_Yes",
+    "streaming_tv_No",
+    "streaming_tv_No internet service",
+    "streaming_tv_Yes",
+    "streaming_movies_No",
+    "streaming_movies_No internet service",
+    "streaming_movies_Yes",
+    "contract_Month-to-month",
+    "contract_One year",
+    "contract_Two year",
+    "paperless_billing_No",
+    "paperless_billing_Yes",
+    "payment_method_Bank transfer (automatic)",
+    "payment_method_Credit card (automatic)",
+    "payment_method_Electronic check",
+    "payment_method_Mailed check"
+  ],
+  "runtime_feature_names": [
+    "f0",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f30",
+    "f31",
+    "f32",
+    "f33",
+    "f34",
+    "f35",
+    "f36",
+    "f37",
+    "f38",
+    "f39",
+    "f40",
+    "f41",
+    "f42",
+    "f43",
+    "f44",
+    "f45"
+  ],
+  "feature_order": [
+    "gender",
+    "senior_citizen",
+    "partner",
+    "dependents",
+    "phone_service",
+    "multiple_lines",
+    "internet_service",
+    "online_security",
+    "online_backup",
+    "device_protection",
+    "tech_support",
+    "streaming_tv",
+    "streaming_movies",
+    "contract",
+    "paperless_billing",
+    "payment_method",
+    "tenure_months",
+    "monthly_charges",
+    "total_charges"
+  ],
+  "onnx_input_name": "float_input",
+  "onnx_output_name": "probabilities"
+}

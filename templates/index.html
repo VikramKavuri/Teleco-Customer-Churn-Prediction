@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telco Churn Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Deployable Demo</p>
+        <h1>Telco churn prediction with live what-if analysis</h1>
+        <p class="lede">
+          Explore how contract type, tenure, internet service, monthly spend, and support features
+          change churn probability for an individual customer, or batch-score a file for the whole segment.
+        </p>
+      </div>
+      <div class="hero-card">
+        <h2>Current model snapshot</h2>
+        <div class="metric-grid">
+          <article>
+            <span>Best model</span>
+            <strong>{{ metrics.model_name }}</strong>
+          </article>
+          <article>
+            <span>ROC AUC</span>
+            <strong>{{ "%.2f"|format(metrics.roc_auc * 100) }}%</strong>
+          </article>
+          <article>
+            <span>F1 score</span>
+            <strong>{{ "%.2f"|format(metrics.f1 * 100) }}%</strong>
+          </article>
+          <article>
+            <span>Dataset rows</span>
+            <strong>{{ dataset_rows }}</strong>
+          </article>
+        </div>
+        <p class="microcopy">
+          Training set balance: {{ class_balance.retain }} retained customers and {{ class_balance.churn }} churned customers.
+        </p>
+      </div>
+    </section>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <section class="flash-stack">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </section>
+      {% endif %}
+    {% endwith %}
+
+    <section class="content-grid">
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Single Customer</p>
+            <h2>Interactive churn simulator</h2>
+          </div>
+          <p class="panel-copy">
+            Use sliders for the strongest numeric drivers and adjust service mix to see how the probability changes.
+          </p>
+        </div>
+
+        <form action="{{ url_for('predict') }}" method="post" class="form-grid">
+          {% for feature in categorical_options.keys() %}
+            <label class="field">
+              <span>{{ feature.replace("_", " ").title() }}</span>
+              <select name="{{ feature }}">
+                {% for option in categorical_options[feature] %}
+                  <option value="{{ option }}" {% if defaults[feature] == option %}selected{% endif %}>{{ option }}</option>
+                {% endfor %}
+              </select>
+            </label>
+          {% endfor %}
+
+          {% for feature, range_values in numeric_ranges.items() %}
+            <label class="field range-field">
+              <span>{{ feature.replace("_", " ").title() }}</span>
+              <div class="range-meta">
+                <span>{{ "%.0f"|format(range_values.min) }}</span>
+                <output for="{{ feature }}">{{ defaults[feature] }}</output>
+                <span>{{ "%.0f"|format(range_values.max) }}</span>
+              </div>
+              <input
+                type="range"
+                id="{{ feature }}"
+                name="{{ feature }}"
+                min="{{ range_values.min }}"
+                max="{{ range_values.max }}"
+                step="1"
+                value="{{ defaults[feature] }}"
+                oninput="this.previousElementSibling.children[1].value = this.value"
+              >
+            </label>
+          {% endfor %}
+
+          <div class="actions">
+            <button type="submit">Calculate churn probability</button>
+          </div>
+        </form>
+
+        {% if single_result %}
+          <section class="result-card">
+            <div>
+              <p class="eyebrow">Prediction</p>
+              <h3>{{ "%.2f"|format(single_result.churn_probability * 100) }}% churn probability</h3>
+              <p class="result-badge {{ 'high-risk' if single_result.predicted_churn == 'Yes' else 'low-risk' }}">
+                Model prediction: {{ single_result.predicted_churn }}
+              </p>
+            </div>
+            <p class="panel-copy">
+              A probability above 60% is a strong retention signal. Try switching from month-to-month to annual contracts,
+              lowering monthly charges, or adding support-related services to see the score move.
+            </p>
+          </section>
+        {% endif %}
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Batch Scoring</p>
+            <h2>Upload a customer file</h2>
+          </div>
+          <p class="panel-copy">
+            Supported inputs: <code>.csv</code>, <code>.xlsx</code>, <code>.json</code>, and structured table PDFs.
+          </p>
+        </div>
+
+        <form action="{{ url_for('batch_predict') }}" method="post" enctype="multipart/form-data" class="upload-form">
+          <input type="file" name="customer_file" accept=".csv,.xlsx,.xls,.json,.pdf" required>
+          <button type="submit">Score uploaded customers</button>
+        </form>
+
+        <div class="support-box">
+          <h3>Expected columns</h3>
+          <p>Minimal schema:</p>
+          <code class="schema">{{ feature_list | join(", ") }}</code>
+          <p>The app also accepts the original IBM-style dataset headers such as <code>CustomerID</code> and <code>Churn Label</code>.</p>
+        </div>
+
+        {% if batch_summary %}
+          <section class="result-card">
+            <div class="metric-grid">
+              <article>
+                <span>Rows scored</span>
+                <strong>{{ batch_summary.rows }}</strong>
+              </article>
+              <article>
+                <span>Average churn probability</span>
+                <strong>{{ "%.2f"|format(batch_summary.average_probability * 100) }}%</strong>
+              </article>
+              <article>
+                <span>High-risk customers</span>
+                <strong>{{ batch_summary.high_risk_customers }}</strong>
+              </article>
+            </div>
+            {% if download_name %}
+              <a class="download-link" href="{{ url_for('download', file_name=download_name) }}">Download scored file</a>
+            {% endif %}
+          </section>
+        {% endif %}
+
+        {% if batch_preview %}
+          <section class="table-shell">
+            <div class="table-header">
+              <h3>Prediction preview</h3>
+              <p>Showing the first 25 records from the scored file.</p>
+            </div>
+            {{ batch_preview | safe }}
+          </section>
+        {% endif %}
+      </section>
+    </section>
+  </main>
+</body>
+</html>

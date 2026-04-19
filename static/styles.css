@@ -1,0 +1,280 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f0e8;
+  --panel: #fffaf2;
+  --ink: #1f2a36;
+  --muted: #5c6773;
+  --accent: #b5482f;
+  --accent-soft: #f1d3c8;
+  --border: #dccfbd;
+  --success: #256b45;
+  --danger: #a33636;
+  --shadow: 0 18px 40px rgba(49, 41, 31, 0.12);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(181, 72, 47, 0.16), transparent 36%),
+    linear-gradient(160deg, #f5f0e8 0%, #f2ebe2 52%, #efe6db 100%);
+  color: var(--ink);
+}
+
+.page-shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 72px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.lede,
+.panel-copy,
+.microcopy {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hero-card,
+.panel,
+.result-card,
+.support-box,
+.flash {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card,
+.panel {
+  padding: 24px;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric-grid article {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.metric-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.metric-grid strong {
+  font-size: 1.2rem;
+}
+
+.flash-stack {
+  margin-bottom: 24px;
+}
+
+.flash {
+  padding: 16px 18px;
+}
+
+.flash.error {
+  border-color: rgba(163, 54, 54, 0.25);
+  color: var(--danger);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span {
+  font-weight: 600;
+}
+
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--ink);
+}
+
+.range-field {
+  grid-column: span 2;
+}
+
+.range-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.actions,
+.upload-form {
+  grid-column: span 2;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+button,
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  padding: 12px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.support-box,
+.result-card,
+.table-shell {
+  margin-top: 18px;
+}
+
+.support-box,
+.result-card {
+  padding: 18px;
+}
+
+.schema {
+  display: block;
+  padding: 12px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px dashed var(--border);
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.result-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
+.result-badge.high-risk {
+  background: rgba(163, 54, 54, 0.12);
+  color: var(--danger);
+}
+
+.result-badge.low-risk {
+  background: rgba(37, 107, 69, 0.12);
+  color: var(--success);
+}
+
+.table-shell {
+  overflow: auto;
+}
+
+.table-header {
+  margin-bottom: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #efe4d4;
+  text-align: left;
+}
+
+th {
+  background: #f6ecdf;
+}
+
+@media (max-width: 1000px) {
+  .hero,
+  .content-grid,
+  .panel-header,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .range-field,
+  .actions,
+  .upload-form {
+    grid-column: span 1;
+  }
+}

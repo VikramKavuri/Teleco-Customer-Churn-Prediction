@@ -1,470 +1,380 @@
-# 🚀 Telecom Customer Churn Prediction: Stop Losing Customers Before They Leave!
+# Telco Customer Churn Predictor
 
-<div align="center">
+> A recruiter-friendly, deployable machine learning project that turns raw telco customer data into a live churn-risk application with interactive what-if analysis and batch scoring.
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/Scikit_Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![XGBoost](https://img.shields.io/badge/XGBoost-FF6600?style=for-the-badge&logo=xgboost&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![App Screenshot](assets/app-screenshot.png)
 
-[![Model Accuracy](https://img.shields.io/badge/Best_Accuracy-87.32%25-success)](https://github.com/yourusername/telecom-churn-prediction)
-[![Algorithms Tested](https://img.shields.io/badge/Algorithms_Tested-6-blue)](https://github.com/yourusername/telecom-churn-prediction)
-[![Features Analyzed](https://img.shields.io/badge/Features_Analyzed-33-orange)](https://github.com/yourusername/telecom-churn-prediction)
-[![ROC AUC](https://img.shields.io/badge/Best_ROC_AUC-87.29%25-green)](https://github.com/yourusername/telecom-churn-prediction)
+**Live Demo:** https://telco-churn-predictor.vercel.app
 
-**🎯 Predicting Customer Churn with 87% Accuracy – Saving Millions in Revenue!**
+## Why This Project Matters
 
-</div>
+Customer churn is one of the clearest business problems in subscription-based industries.
+If a telco provider can identify which customers are most likely to leave, it can intervene early with pricing, support, bundling, or retention offers before revenue is lost.
 
----
+This project takes that business problem and turns it into something concrete:
 
-## 💡 **The Million-Dollar Problem We Solved**
+- a cleaned and reproducible machine learning workflow
+- a deployed Flask application for real-time scoring
+- a batch upload tool for business users
+- an interactive simulator to explore how churn drivers change the prediction
 
-> **"In telecom, acquiring a new customer costs 5-25x more than retaining an existing one. Yet companies lose 15-25% of customers annually!"**
+This is not just a notebook with charts. It is a full project that connects:
 
-Imagine knowing **exactly which customers are about to leave** before they actually do. That's not magic – that's the power of machine learning we've unleashed in this project!
+1. business problem framing
+2. data preparation
+3. model evaluation
+4. application design
+5. deployment readiness
 
-### 🎯 **The Mission**
-Transform 7,043 customer records and 33 features into actionable insights that can:
-- 📈 **Predict churn with 87.32% accuracy**
-- 💰 **Save millions in lost revenue**
-- 🎯 **Target retention efforts precisely**
-- ⚡ **Deploy predictions in real-time via web app**
+## Quick Snapshot
 
----
-## 🔄 Workflow & Architecture
-```mermaid
-graph TB
-    subgraph "📂 DATA"
-        A[Telco Customer Dataset<br/>7043 Records · 33 Features]
-    end
-    
-    subgraph "⚙️ PROCESSING"
-        B[Data Cleaning<br/>Null Handling · Outliers · Encoding]
-        C[Feature Engineering<br/>Tenure · Charges · Services]
-        D[SMOTE Balancing<br/>Handle Class Imbalance]
-    end
-    
-    subgraph "🤖 MODELING"
-        E1[Logistic Regression]
-        E2[Decision Tree]
-        E3[Random Forest]
-        E4[SVM]
-        E5[Naïve Bayes]
-        E6[XGBoost 🏆<br/>Best Model · 87% AUC]
-    end
-    
-    subgraph "🧪 EVALUATION"
-        F[Confusion Matrix<br/>ROC-AUC · F1-Score]
-        G[Feature Importance<br/>Top Drivers of Churn]
-    end
-    
-    subgraph "🌐 DEPLOYMENT"
-        H[Flask Web App<br/>/start · /inp_data]
-        I[Upload Excel/CSV<br/>Predict Churn per Customer]
-        J[Retention Strategies<br/>Discounts · Support · Bundling]
-    end
-    
-    subgraph "💼 BUSINESS IMPACT"
-        K[Reduce Churn<br/>+86% Churners Identified]
-        L[Revenue Protection<br/>≈ $1.6M Annually Saved]
-    end
+- **Project theme:** Telco churn prediction
+- **Primary goal:** Predict which customers are at risk of leaving
+- **Best deployed model:** XGBoost
+- **Validation ROC AUC:** 85.14%
+- **Validation Accuracy:** 80.20%
+- **Batch scoring formats:** CSV, XLSX, JSON, and structured-table PDF
+- **Interactive features:** Single-customer what-if simulator with adjustable inputs
+- **Live hosting status:** Deployed on Vercel
 
-    %% Flow
-    A --> B --> C --> D
-    D --> E1 & E2 & E3 & E4 & E5 & E6
-    E6 --> F --> G
-    G --> H
-    H --> I --> J
-    J --> K --> L
+## What Makes This Repo Strong From a Recruiter Perspective
 
-    %% Styling
-    style A fill:#ffcc99,stroke:#333,stroke-width:2px
-    style E6 fill:#99ffcc,stroke:#333,stroke-width:2px
-    style H fill:#99ccff,stroke:#333,stroke-width:2px
-    style L fill:#99ff99,stroke:#333,stroke-width:2px
+This repository is designed to show more than model training.
+It demonstrates the kind of end-to-end thinking that is valuable in data, ML, analytics, and product-oriented engineering roles:
+
+- translating a business problem into a measurable ML objective
+- identifying meaningful churn drivers from customer behavior and service choices
+- building a user-facing application instead of stopping at model metrics
+- documenting tradeoffs honestly instead of inflating results
+- preparing the project for deployment so it can be evaluated like a real product
+
+## The Business Problem
+
+Telco churn directly impacts recurring revenue, customer lifetime value, and acquisition cost efficiency.
+Acquiring a new customer is usually more expensive than retaining an existing one, so even modest improvements in churn detection can create meaningful business value.
+
+This project focuses on a simple question:
+
+**Can we identify customers with elevated churn risk early enough to support retention decisions?**
+
+Examples of practical actions this model could support:
+
+- targeting customers for retention offers
+- prioritizing outreach from account or support teams
+- identifying segments with structurally higher churn risk
+- testing how contract structure or service bundles may affect churn probability
+
+## What The App Actually Does
+
+The application supports two user journeys.
+
+### 1. Interactive what-if simulator
+
+The home page lets a user adjust customer attributes and immediately see how the predicted churn probability changes.
+
+This is useful for:
+
+- recruiters who want to see that the model is truly wired into an interface
+- stakeholders who want a simple demo without reading code
+- analysts who want to understand how churn drivers influence the score
+
+Adjustable inputs include:
+
+- gender
+- senior citizen status
+- partner / dependents
+- phone service and multiple lines
+- internet service type
+- online security / backup / device protection / tech support
+- streaming services
+- contract type
+- paperless billing
+- payment method
+- tenure months
+- monthly charges
+- total charges
+
+Important note for authenticity:
+the dataset does **not** contain an `age` column.
+The closest available age-related field is `Senior Citizen`, so the app uses that instead of pretending age exists in the source data.
+
+### 2. Batch customer scoring
+
+The app also supports scoring a file of customer records at once.
+
+Supported uploads:
+
+- `csv`
+- `xlsx`
+- `json`
+- `pdf` containing a structured table close to the expected schema
+
+For each customer record, the app returns:
+
+- `customerid`
+- `churn_probability`
+- `predicted_churn`
+
+This turns the project from a simple model demo into something much closer to a business workflow.
+
+## Example Behaviors Observed In Local Testing
+
+I tested the live local app with several contrasting profiles after deploying the cleaned XGBoost pipeline locally.
+
+### Higher-risk example
+
+- month-to-month contract
+- fiber optic internet
+- low tenure
+- higher monthly charges
+- limited support/security services
+
+Observed churn probability:
+
+- **64.24%** churn probability
+- predicted churn: **Yes**
+
+### Very high-risk example
+
+- senior citizen
+- month-to-month contract
+- fiber optic service
+- very short tenure
+- high monthly charges
+- no online security or tech support
+
+Observed churn probability:
+
+- **91.26%** churn probability
+- predicted churn: **Yes**
+
+### Lower-risk example
+
+- long tenure
+- two-year contract
+- lower monthly charges
+- stronger support / protection services
+- automatic payment setup
+
+Observed churn probability:
+
+- **0.20%** churn probability
+- predicted churn: **No**
+
+These examples make the demo more intuitive and show that the application responds meaningfully to parameter changes.
+
+## Model Development Approach
+
+The original repository included notebook-driven experimentation.
+This version was reworked into a cleaner and more reliable deployment pipeline so the app and the documentation reflect the same truth.
+
+### Models compared
+
+Three models are trained and evaluated in the current workflow:
+
+- Logistic Regression
+- Random Forest
+- XGBoost
+
+### Shared preprocessing pipeline
+
+Each candidate model uses structured preprocessing before training:
+
+- numeric imputation with median values
+- categorical imputation with most-frequent values
+- one-hot encoding for categorical variables
+- train/test split before evaluation
+
+This matters because earlier notebook-style workflows can accidentally inflate performance if resampling or transformation is applied before the train/test split.
+
+## Final Model Choice
+
+The currently selected deployed model is **XGBoost**.
+
+It was chosen because, in the cleaned evaluation flow used by the application, it produced the strongest ROC AUC while also leading in overall accuracy.
+
+### Current local validation results
+
+#### XGBoost
+
+- ROC AUC: **85.14%**
+- Average Precision: **66.70%**
+- Accuracy: **80.20%**
+- Precision: **64.62%**
+- Recall: **56.15%**
+- F1: **60.09%**
+
+#### Random Forest
+
+- ROC AUC: **84.75%**
+- Accuracy: **78.99%**
+- F1: **62.53%**
+
+#### Logistic Regression
+
+- ROC AUC: **84.89%**
+- Accuracy: **74.31%**
+- F1: **61.73%**
+
+### Why not choose only the highest F1 model?
+
+Because model choice depends on the business objective.
+For this project, the active selection rule favors:
+
+1. higher ROC AUC
+2. then F1 as a tiebreaker
+
+That makes XGBoost the most appropriate deployed default in the current setup.
+If the business objective changed to prioritize recall or a different thresholding strategy, the selection rule could also change.
+
+## Why The Results Are More Credible Now
+
+One of the most important improvements in this repo is that the evaluation has been made more honest.
+
+This version avoids several problems that often make portfolio ML projects look weaker to experienced reviewers:
+
+- inflated metrics caused by train/test leakage
+- mismatch between notebook results and deployed app logic
+- unrealistic claims that are not supported by the actual code
+- vague “AI-powered” language without concrete implementation details
+
+Instead, this repo now aims to be credible:
+
+- the README matches the current codebase
+- the deployed model is the model actually used by the app
+- the UI inputs reflect real fields from the dataset
+- limitations are stated clearly
+
+## Features Used By The Model
+
+The app currently uses the following predictive inputs:
+
+- `gender`
+- `senior_citizen`
+- `partner`
+- `dependents`
+- `phone_service`
+- `multiple_lines`
+- `internet_service`
+- `online_security`
+- `online_backup`
+- `device_protection`
+- `tech_support`
+- `streaming_tv`
+- `streaming_movies`
+- `contract`
+- `paperless_billing`
+- `payment_method`
+- `tenure_months`
+- `monthly_charges`
+- `total_charges`
+
+## Files Accepted By The App
+
+The minimal model-ready schema is based on those features above.
+
+The app also accepts the original dataset-style headers, such as:
+
+- `CustomerID`
+- `Senior Citizen`
+- `Monthly Charges`
+- `Total Charges`
+- `Churn Label`
+
+This makes the app easier to demo with the original dataset and also easier to adapt to cleaned downstream files.
+
+## Repository Structure
+
+```text
+Teleco-Customer-Churn-Prediction/
+├── app.py                     # Flask app routes and page rendering
+├── modeling.py                # Training, preprocessing, prediction helpers
+├── train_model.py             # Rebuilds the saved model artifact
+├── wsgi.py                    # Production entrypoint
+├── requirements.txt           # Python dependencies
+├── artifacts/
+│   ├── churn_model.joblib     # Saved trained model bundle
+│   └── metrics.json           # Validation metrics for all candidate models
+├── templates/
+│   └── index.html             # Main app UI
+├── static/
+│   └── styles.css             # App styling
+├── assets/
+│   └── app-screenshot.png     # Real screenshot from the app
+└── Telco_customer_churn.xlsx  # Source dataset
 ```
 
-## 🌟 **What Makes This Project Special**
-
-<table>
-<tr>
-<td width="50%">
-
-### 📊 **Comprehensive Analysis**
-- ✅ **6 ML algorithms** benchmarked
-- ✅ **33 features** analyzed
-- ✅ **7,043 customers** studied
-- ✅ **SMOTE** for perfect class balance
-- ✅ **10,326 samples** after balancing
-
-</td>
-<td width="50%">
-
-### 🚀 **Production-Ready Solution**
-- ✅ **Flask web application** deployed
-- ✅ **Real-time predictions** enabled
-- ✅ **Batch processing** supported
-- ✅ **User-friendly interface** 
-- ✅ **Actionable insights** delivered
-
-</td>
-</tr>
-</table>
-
----
-
-## 🔬 **The Journey: From Raw Data to Revenue Protection**
-
-### 📥 **Phase 1: Data Acquisition & Understanding**
-We started with IBM's Telco dataset – real-world data with real-world messiness:
-- **7,043 customer records** spanning multiple years
-- **33 diverse features** from demographics to service usage
-- **26.5% churn rate** – a costly problem needing urgent solution
-
-### 🧹 **Phase 2: Data Surgery (Because Clean Data = Accurate Predictions)**
-
-<details>
-<summary><b>Click to see our meticulous cleaning process</b></summary>
-
-```python
-# The transformation journey
-Initial Dataset: (7043, 33) → Cleaned Dataset: (7032, 28)
-
-✓ Column standardization (PascalCase → snake_case)
-✓ Data type corrections (object → numerical)
-✓ Missing value treatment (11 nulls in total_charges)
-✓ Feature reduction (removed redundant LatLong)
-✓ Outlier detection (Z-score > 3)
-✓ Duplicate removal (0 found - clean data!)
-```
-
-**Key Decisions:**
-- Dropped `churn_reason`: 5,174 nulls (73% missing!)
-- Removed `total_charges`: Strategic feature engineering
-- Eliminated location redundancy: Kept zip, lat, long separate
-
-</details>
-
-### 📊 **Phase 3: Exploratory Data Analysis (The Detective Work)**
-
-<div align="center">
-
-**🔍 What We Discovered:**
-
-| Insight | Impact |
-|---------|--------|
-| **Contract Type Matters** | Month-to-month = 3x higher churn |
-| **Tenure is Gold** | <6 months tenure = 50% churn risk |
-| **Senior Citizens** | 41% churn rate vs 23% overall |
-| **Internet Service** | Fiber optic users churn more |
-| **Payment Method** | Electronic check = highest churn |
-
-</div>
-
-### ⚖️ **Phase 4: SMOTE - Balancing the Scales**
-
-```python
-# The Class Imbalance Challenge
-Before SMOTE: No Churn: 5,163 (84%) | Churn: 1,869 (16%)
-After SMOTE:  No Churn: 5,163 (50%) | Churn: 5,163 (50%)
-
-Result: Perfect balance = Unbiased predictions!
-```
-
----
-
-## 🤖 **The Algorithm Battle Royale**
-
-We tested **6 powerful algorithms** in a head-to-head competition:
-
-<div align="center">
-
-| Algorithm | Accuracy | ROC AUC | RMSE | Why It Matters |
-|-----------|----------|---------|------|----------------|
-| **🏆 XGBoost** | **87.32%** | **87.29%** | **0.356** | **Winner! Best overall performance** |
-| **🥈 Random Forest** | 87.00% | 87.00% | 0.360 | Close second, excellent stability |
-| **🥉 Decision Tree** | 82.00% | 82.00% | 0.420 | Good interpretability |
-| **SVM (RBF)** | 81.80% | 81.63% | 0.430 | Non-linear patterns captured |
-| **Gaussian NB** | 78.65% | 78.73% | 0.462 | Fast, probabilistic insights |
-| **Logistic Regression** | 77.73% | 77.84% | 0.470 | Baseline with coefficients |
-
-</div>
-
-### 🎯 **Feature Importance: The Churn Drivers**
-
-<details>
-<summary><b>Top 5 Features That Predict Churn (Click to Expand)</b></summary>
-
-**XGBoost's Verdict:**
-1. 🌐 **Internet Service** (29.09%) - Type of connection matters!
-2. 👴 **Senior Citizen** (15.70%) - Age demographics crucial
-3. 🔒 **Online Security** (10.19%) - Security service retention power
-4. 💻 **Tech Support** (8.21%) - Support quality impacts loyalty
-5. 📱 **Multiple Lines** (6.70%) - Service bundling effects
-
-**Random Forest's Perspective:**
-1. 💵 **Monthly Charges** (19.00%) - Price sensitivity
-2. 💰 **Total Charges** (18.76%) - Customer lifetime value
-3. 📅 **Tenure Months** (18.55%) - Loyalty indicator
-4. 🔐 **Online Security** (10.59%) - Service value perception
-5. 🛠️ **Tech Support** (7.38%) - Support importance
-
-</details>
-
----
-
-## 📈 **Results That Speak Volumes**
-
-### **Confusion Matrix Analysis (XGBoost)**
-
-```
-                 Predicted
-              No Churn | Churn
-Actual  ┌────────────┬────────────┐
-No Churn│    934     │    122     │  88% Retained!
-        ├────────────┼────────────┤
-Churn   │    140     │    870     │  86% Caught!
-        └────────────┴────────────┘
-
-Translation: We correctly identify 870 out of 1010 churning customers!
-```
-
-### 💰 **Business Impact Calculator**
-
-```python
-# Real-world Revenue Protection
-Average Customer Value = $1,000/year
-Customers Analyzed = 7,032
-Churn Rate = 26.5%
-Customers Saved (86% accuracy) = 1,605
-
-💵 REVENUE PROTECTED = $1,605,000 annually!
-```
-
----
-
-## 🌐 **Web Application: From Model to Production**
-
-<div align="center">
-
-### **🚀 Flask-Powered Prediction Engine**
-
-```
-┌─────────────────────────────────────────┐
-│     CUSTOMER CHURN PREDICTOR v1.0      │
-├─────────────────────────────────────────┤
-│                                         │
-│  📁 Upload Customer Data (Excel/CSV)    │
-│  ⚡ Real-time Processing                │
-│  📊 Instant Predictions                 │
-│  💾 Downloadable Results                │
-│                                         │
-│  [Upload File]  [Process]  [Download]  │
-└─────────────────────────────────────────┘
-```
-
-</div>
-
-### **How It Works:**
-
-1. **Upload** → Excel/CSV with customer data
-2. **Process** → XGBoost model analyzes patterns
-3. **Predict** → Binary output (0: Stay, 1: Churn)
-4. **Act** → Targeted retention strategies
-
-<details>
-<summary><b>🔧 Quick Setup Guide</b></summary>
+## Running The Project Locally
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/telecom-churn-prediction.git
-cd telecom-churn-prediction
-
-# Install dependencies
+pip install -r requirements-dev.txt
+python train_model.py
 pip install -r requirements.txt
-
-# Run the Flask app
 python app.py
-
-# Open browser
-Navigate to: http://localhost:5000/start
 ```
 
-</details>
+Open:
 
----
-
-## 🎓 **Key Learnings & Insights**
-
-### **1. The Power of Feature Engineering**
-```python
-# Date normalization magic
-'2024-07-15T00:00:00Z' → '2024-07-15'  # Consistency wins!
+```text
+http://localhost:5000
 ```
 
-### **2. Class Imbalance is a Silent Killer**
-- Without SMOTE: 73% accuracy (misleading!)
-- With SMOTE: 87% accuracy (true performance!)
+Health endpoint:
 
-### **3. Ensemble Methods Dominate**
-- XGBoost and Random Forest consistently outperformed
-- Single models (Logistic, SVM) struggled with complex patterns
-
-### **4. Business Context Matters**
-- False Negatives (missing churners) = Lost revenue
-- False Positives (wrong predictions) = Wasted retention costs
-- Our model balances both with F1-score of 0.87!
-
----
-
-## 🚀 **Actionable Retention Strategies**
-
-Based on our analysis, here's your playbook to reduce churn:
-
-### **🎯 High-Risk Customer Segments:**
-
-| Segment | Churn Risk | Action Required |
-|---------|------------|-----------------|
-| **New Customers (<6 months)** | 🔴 50% | Onboarding programs, welcome offers |
-| **Senior Citizens** | 🔴 41% | Dedicated support, simplified plans |
-| **Month-to-Month Contracts** | 🟠 35% | Contract upgrade incentives |
-| **Electronic Check Users** | 🟠 33% | Payment method switch bonuses |
-| **No Online Security** | 🟡 30% | Security bundle promotions |
-
-### **💡 Recommended Interventions:**
-
-1. **🎁 Personalized Retention Offers**
-   - Target: Customers with >70% churn probability
-   - Offer: 20% discount for 6-month commitment
-
-2. **📞 Proactive Support Outreach**
-   - Target: Senior citizens + new customers
-   - Action: Monthly check-in calls
-
-3. **🔒 Service Bundle Push**
-   - Target: Single-service users
-   - Offer: Free online security for 3 months
-
-4. **💳 Payment Method Migration**
-   - Target: Electronic check users
-   - Incentive: $10 credit for switching to auto-pay
-
----
-
-## 📁 **Project Structure**
-
-```
-telecom-churn-prediction/
-│
-├── 📂 data/
-│   ├── raw_telco_data.csv         # Original dataset
-│   ├── cleaned_data.csv           # Post-processing
-│   └── balanced_data.csv          # After SMOTE
-│
-├── 📂 notebooks/
-│   ├── 01_data_cleaning.ipynb     # Cleaning pipeline
-│   ├── 02_eda_analysis.ipynb      # Exploratory analysis
-│   ├── 03_feature_engineering.ipynb
-│   └── 04_model_training.ipynb    # Algorithm comparison
-│
-├── 📂 models/
-│   ├── xgboost_model.pkl          # Best performer
-│   ├── random_forest_model.pkl    
-│   └── model_comparison.csv       # Performance metrics
-│
-├── 📂 app/
-│   ├── app.py                     # Flask application
-│   ├── templates/                 # HTML templates
-│   └── static/                    # CSS/JS files
-│
-├── 📂 results/
-│   ├── confusion_matrices/        # Model evaluations
-│   ├── feature_importance/        # Variable rankings
-│   └── predictions/               # Output files
-│
-├── 📄 requirements.txt
-├── 📄 README.md
-└── 📄 DIC_Project_Report.pdf      # Detailed documentation
+```text
+http://localhost:5000/health
 ```
 
----
+## Deployment
 
-## 🛠️ **Technologies Used**
+### Vercel
 
-<div align="center">
+Live app:
 
-| Category | Technologies |
-|----------|-------------|
-| **Data Processing** | Pandas, NumPy, Scikit-learn |
-| **Visualization** | Matplotlib, Seaborn, Plotly |
-| **Machine Learning** | XGBoost, RandomForest, SVM, Decision Trees |
-| **Class Balancing** | SMOTE (imblearn) |
-| **Model Evaluation** | ROC-AUC, Confusion Matrix, F1-Score |
-| **Web Framework** | Flask, HTML/CSS, Bootstrap |
-| **Deployment** | Python 3.8+, REST API |
+- https://telco-churn-predictor.vercel.app
 
-</div>
+This deployment works because the runtime was refactored to use a lightweight ONNX inference artifact instead of shipping the full training-time XGBoost stack into the serverless environment.
+That keeps the deployed model behavior aligned with XGBoost while making the bundle small enough for Vercel.
 
----
+### Render
 
-## 📚 **References & Resources**
+The repository also includes a `render.yaml` configuration for deployment on Render.
+Render remains a valid alternative deployment target for teams that prefer a more traditional Python hosting flow.
 
-1. 📖 Chen, T., & Guestrin, C. - *"XGBoost: A Scalable and Accurate Implementation of Gradient Boosting"*
-2. 📖 Koehrsen, W. - *"Introduction to Random Forest"*
-3. 📖 Géron, A. - *"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow"*
-4. 📖 Grus, J. - *"Data Science from Scratch: First Principles with Python"*
-5. 🌐 IBM Telco Customer Churn Dataset
+## What A Senior Recruiter Should Notice
 
----
+This project shows a few qualities that are often missing in early portfolio repositories:
 
-## 🤝 **Team & Contributions**
+- it is easy to understand what the project is solving
+- the README is written for both technical and non-technical readers
+- the code supports the story the README is telling
+- the model is not treated like a black box without context
+- the app creates a realistic demonstration path for reviewers
 
-<div align="center">
+## Honest Limitations
 
-**Built with dedication by:**
+To keep the repository authentic, here are the current limitations plainly stated:
 
-**Thrivikramarao Kavuri** | **Nitesh Padidam** | **Kowsik Kanteti**
+- the dataset is a structured churn dataset, not a live production feed
+- PDF parsing is best-effort and works only when the file contains a usable table
+- the app does not yet provide row-level model explanations such as SHAP values
+- the deployed threshold is currently the default probability threshold rather than a business-optimized custom threshold
+- long-term production concerns such as authentication, monitoring, and audit logging are outside this demo scope
 
-*Data Science & Innovation Computing Project - Phase 1*
+## High-Value Next Steps
 
-</div>
+If this project were taken one step further, the best improvements would be:
 
----
+1. add feature-level explanation for each prediction
+2. expose threshold tuning based on business cost of false positives vs false negatives
+3. add downloadable sample templates for upload testing
+4. store scored files and prediction history for authenticated users
+5. add automated tests for preprocessing, uploads, and prediction routes
 
-## 🎯 **Future Enhancements**
+## Recruiter-Focused Summary
 
-- [ ] **Deep Learning Models** - Neural networks for pattern recognition
-- [ ] **Real-time Streaming** - Apache Kafka integration
-- [ ] **Cloud Deployment** - AWS/Azure hosting
-- [ ] **AutoML Pipeline** - Automated hyperparameter tuning
-- [ ] **Customer Segmentation** - K-means clustering
-- [ ] **Churn Probability API** - RESTful service
-- [ ] **Dashboard Analytics** - Power BI/Tableau integration
+If you only read one section, this is the short version:
 
----
-
-## 📬 **Get In Touch**
-
-<div align="center">
-
-**Questions? Ideas? Collaboration?**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/thrivikrama-rao-kavuri-7290b6147/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-100000?style=for-the-badge&logo=github)](https://github.com/VikramKavuri)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail)](mailto:thrivikr@buffalo.edu)
-
-</div>
-
----
-
-<div align="center">
-
-### ⭐ **If this project helped you, please star the repository!**
-
-**"Turning Data into Decisions, One Customer at a Time"** 🚀
-
-*Preventing churn today for a profitable tomorrow*
-
-</div>
+This repository is an end-to-end churn prediction project that moves beyond notebook experimentation into a working application.
+It combines business framing, model evaluation, UI design, file-based scoring, and deployment readiness in one coherent story.
+The strongest signal in this repo is not just that a model was trained, but that the project was shaped into something a real stakeholder could understand, try, and discuss.

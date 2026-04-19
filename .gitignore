@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+*.pyc
+uploads/*.csv
+uploads/*.json
+uploads/*.pdf
+uploads/*.xlsx
+uploads/*.xls
+screenshots/
+.vercel
